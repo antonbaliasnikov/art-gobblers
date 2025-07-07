@@ -18,7 +18,7 @@ contract DeployRinkebyTest is DSTestPlus {
         vm.setEnv("DEPLOYER_PRIVATE_KEY", "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         vm.setEnv("GOBBLER_PRIVATE_KEY", "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
         vm.setEnv("PAGES_PRIVATE_KEY", "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc");
-        vm.setEnv("GOO_PRIVATE_KEY", "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
+        vm.setEnv("GOO_PRIVATE_KEY", "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
 
         vm.deal(vm.addr(vm.envUint("DEPLOYER_PRIVATE_KEY")), type(uint64).max);
 

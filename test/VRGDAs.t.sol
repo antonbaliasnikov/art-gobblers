@@ -97,11 +97,12 @@ contract VRGDAsTest is DSTestPlus {
         );
     }
 
-    function testFailOverflowForBeyondLimitGobblers(uint256 timeSinceStart, uint256 sold) public {
-        gobblers.getVRGDAPrice(
-            toDaysWadUnsafe(bound(timeSinceStart, 0 days, ONE_THOUSAND_YEARS)),
-            bound(sold, 6392, type(uint128).max)
-        );
+    function test_RevertWhen_GobblersSoldBeyondLimit(uint256 timeSinceStart, uint256 sold) public {
+        timeSinceStart = bound(timeSinceStart, 0 days, ONE_THOUSAND_YEARS);
+        sold = bound(sold, 6392, type(uint128).max);
+
+        vm.expectRevert();
+        gobblers.getVRGDAPrice(toDaysWadUnsafe(timeSinceStart), sold);
     }
 
     function testGobblerPriceStrictlyIncreasesForMostGobblers() public {
